@@ -2,10 +2,10 @@
 
 var addressBookControllers = angular.module('addressBookControllers', []);
 
-addressBookControllers.controller('ContactListCtrl', ['$scope', '$http',
- function ($scope, $http) {
+addressBookControllers.controller('ContactListCtrl', ['$scope', '$http','$filter',
+ function ($scope, $http, $filter) {
    $http.get('http://fast-gorge.herokuapp.com/contacts').success(function(data) {
-     $scope.contacts = data
+     $scope.contacts = $filter('orderBy')(data, 'first_name')
    });
  }
 
