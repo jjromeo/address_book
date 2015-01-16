@@ -9,6 +9,7 @@ module.exports = function(config){
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/js/app.js',
       'app/js/controllers/ContactListCtrl.js',
+      'app/js/controllers/ContactDetailCtrl.js',
       'unit-tests/*.js'
     ],
 
