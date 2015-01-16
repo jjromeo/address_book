@@ -1,6 +1,5 @@
 'use strict';
 
-var addressBookControllers = angular.module('addressBookControllers', []);
 
 addressBookControllers.controller('ContactListCtrl', ['$scope', '$http','$filter',
  function ($scope, $http, $filter) {

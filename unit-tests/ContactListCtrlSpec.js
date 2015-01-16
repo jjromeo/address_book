@@ -47,8 +47,14 @@ describe('Address book controllers', function() {
     it ('should create an address model with all items from the api', inject(function($controller){
       $httpBackend.flush()
       expect(scope.contacts.length).toBe(3);
-      expect(scope.contacts[0].first_name).toBe("Erik")
     }));
+
+    it ('should order the contacts by their first name', inject(function($controller){
+      $httpBackend.flush()
+      expect(scope.contacts[0].first_name).toBe('Asia')
+      expect(scope.contacts[1].first_name).toBe('Erik')
+    }))
+
 
  })
 });
