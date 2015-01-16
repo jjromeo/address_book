@@ -15,6 +15,10 @@ addressBookApp.config(['$routeProvider',
       templateUrl: 'views/contact_details.html',
       controller: 'ContactDetailCtrl'
     })
+    .when('/new', {
+      templateUrl: 'views/new_contact.html',
+      controller: 'NewContactCtrl'
+    })
     .otherwise({
       redirectTo: '/contacts',
       templateUrl: 'views/contacts.html',
