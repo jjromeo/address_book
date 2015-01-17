@@ -10,6 +10,7 @@ module.exports = function(config){
       'app/js/app.js',
       'app/js/controllers/ContactListCtrl.js',
       'app/js/controllers/ContactDetailCtrl.js',
+      'app/js/controllers/NewContactCtrl.js',
       'unit-tests/*.js'
     ],
 
