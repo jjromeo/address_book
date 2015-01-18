@@ -1,7 +1,8 @@
 'use strict';
 
-addressBookControllers.controller('EditContactCtrl', ['$scope', '$http', '$routeParams', '$location',
-  function($scope, $http, $routeParams, $location){
+addressBookControllers.controller('EditContactCtrl', [
+  '$scope', '$http', '$routeParams', '$location', 'Alerter',
+  function($scope, $http, $routeParams, $location, Alerter){
     var id = $routeParams.id
 
     // for pre-filling the form
@@ -12,6 +13,7 @@ addressBookControllers.controller('EditContactCtrl', ['$scope', '$http', '$route
     $scope.submitEdit = function(contact) {
       $http.put("http://fast-gorge.herokuapp.com/contacts/" + id, contact).success(function(data){
         $location.path("#/contacts/" + id);
+        Alerter.alerts.push({type: 'info', msg: 'Your contact has been updated'})
       })
     }
   }
