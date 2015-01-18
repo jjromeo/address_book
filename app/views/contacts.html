@@ -1,5 +1,8 @@
-  <h1>All Contacts</h1>
-<input ng-model="searchContacts">
+<h1>All Contacts</h1>
+    <div id="alerts">
+        <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)"><span class="alert-msg">{{alert.msg}}</span></alert>
+    </div>
+<input ng-model="searchContacts" placeholder="Search">
   <ul ng-repeat="contact in contacts | filter:searchContacts">
     <li>{{contact.first_name}} {{contact.surname}}</li>
     <li><em>Phone number: {{contact.phone_number}}</em></li>

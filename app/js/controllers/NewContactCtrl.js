@@ -1,11 +1,13 @@
 'use strict';
 
-addressBookControllers.controller('NewContactCtrl', ['$scope', '$http',
-  function($scope, $http){
+addressBookControllers.controller('NewContactCtrl', ['$scope', '$http', '$location', 'Alerter',
+  function($scope, $http, $location, Alerter){
     $scope.submitContact = function(contact) {
-      $http.post("http://fast-gorge.herokuapp.com/contacts", contact)
-      $scope.contact = {}
-  }
+      $http.post("http://fast-gorge.herokuapp.com/contacts", contact).success(function(response){
+        $location.path('#/contacts')
+        Alerter.alerts.push({type: 'success', msg: 'You have successfully added a contact'})
+      });
+    }
   }
 
 ]);

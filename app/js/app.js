@@ -3,10 +3,13 @@
 
 var addressBookApp = angular.module('addressBookApp', [
   'ngRoute',
-  'addressBookControllers'
+  'ui.bootstrap',
+  'addressBookControllers',
+  'addressBookServices'
 ]);
 
 var addressBookControllers = angular.module('addressBookControllers', []);
+var addressBookServices = angular.module('addressBookServices', [])
 
 addressBookApp.config(['$routeProvider',
   function($routeProvider) {
@@ -18,6 +21,10 @@ addressBookApp.config(['$routeProvider',
     .when('/new', {
       templateUrl: 'views/new_contact.html',
       controller: 'NewContactCtrl'
+    })
+    .when('/edit/:id', {
+      templateUrl: 'views/edit_contact.html',
+      controller: 'EditContactCtrl'
     })
     .otherwise({
       redirectTo: '/contacts',

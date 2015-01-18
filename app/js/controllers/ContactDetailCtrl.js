@@ -7,6 +7,7 @@ addressBookControllers.controller('ContactDetailCtrl', ['$scope', '$http','$rout
     })
 
     $scope.deleteContact = function(contactID) {
+      // Confirms before deleting contact
       bootbox.confirm("Are you sure you want to delete this contact?", function(answer) {
         if (answer === true) {
           $http.delete('http://fast-gorge.herokuapp.com/contacts/' + contactID).success(function(data){
@@ -14,7 +15,7 @@ addressBookControllers.controller('ContactDetailCtrl', ['$scope', '$http','$rout
           })
         }
       })
-   }
+    }
   }
 ]);
-                                  
+
