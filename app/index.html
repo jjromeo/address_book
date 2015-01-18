@@ -18,13 +18,16 @@
 <body>
   <div class="container">
     <div class="row">
-      <!--[if lt IE 7]>
-          <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-      <![endif]-->
+      <div class="col-md-6 col-md-offset-3">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
 
-      <a href="#/contacts"><h1>Address Book</h1></a>
-      <div ng-view> 
-      </div>
+          <a href="#/contacts"><h1>Address Book</h1></a>
+          <a href="#/new">Add a contact</a>
+          <div ng-view> 
+          </div>
+        </div>
     </div>
   </div>
 
