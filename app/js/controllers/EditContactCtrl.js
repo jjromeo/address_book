@@ -13,7 +13,7 @@ addressBookControllers.controller('EditContactCtrl', [
     $scope.submitEdit = function(contact) {
       $http.put("http://fast-gorge.herokuapp.com/contacts/" + id, contact).success(function(data){
         $location.path("/contacts/" + id );
-        Alerter.alerts.push({type: 'info', msg: 'Your contact has been updated'})
+        Alerter.addAlert('info', 'Your contact has been updated')
       })
     }
   }
