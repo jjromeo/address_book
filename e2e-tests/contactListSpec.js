@@ -50,6 +50,11 @@ describe('address book', function() {
       expect(element(by.model('contact.phone_number')).getAttribute('value')).toEqual('079 0873 3864');
     })
 
+    it('will let you search the contacts', function() {
+      element.all(by.model('searchContacts')).sendKeys('Gordon')
+      expect(element(by.repeater('contact in contacts').row(0)).getText()).toMatch(/Gordon/)
+    })
+
     it ('will let you update a contact', function() {
       element.all(by.css('#see-more-Gordon')).first().click();
       editButton.click();
@@ -69,18 +74,4 @@ describe('address book', function() {
 
   });
 
-
-  //describe('view2', function() {
-
-    //beforeEach(function() {
-      //browser.get('index.html#/view2');
-    //});
-
-
-    //it('should render view2 when user navigates to /view2', function() {
-      //expect(element.all(by.css('[ng-view] p')).first().getText()).
-        //toMatch(/partial for view 2/);
-    //});
-
-  //});
 });
