@@ -24,7 +24,6 @@ describe('Address book controllers', function() {
         var mockId = url.match(urlRegex)[1];
         return [200, Erik]
       }
-
       )
       $httpBackend.expectGET().
         respond(Erik)
