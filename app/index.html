@@ -24,7 +24,10 @@
         <![endif]-->
 
           <a href="#/contacts"><h1>Address Book</h1></a>
-          <a href="#/new">Add a contact</a>
+          <a href="#/new" id="add-contact">Add a contact</a>
+          <div id="alerts" ng-controller="AlertCtrl">
+              <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)"><span class="alert-msg">{{alert.msg}}</span></alert>
+          </div>
           <div ng-view> 
           </div>
         </div>
@@ -45,6 +48,7 @@
   <script src="js/controllers/ContactDetailCtrl.js"></script>
   <script src="js/controllers/NewContactCtrl.js"></script>
   <script src="js/controllers/EditContactCtrl.js"></script>
+  <script src="js/controllers/AlertCtrl.js"></script>
   <script src="js/services/AlertService.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </body>

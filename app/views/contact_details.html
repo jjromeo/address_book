@@ -1,5 +1,5 @@
-<h1>{{contact.first_name}} {{contact.surname}}</h1>
+<h1 id="contact-name">{{contact.first_name}} {{contact.surname}}</h1>
 <p>Phone number: {{contact.phone_number}}
 <p>Address: {{contact.address}}</p>
-<a class="btn btn-sm btn-info" href="#/edit/{{contact.id}}">Edit details</a>
+<a class="btn btn-sm btn-info" href="#/edit/{{contact.id}}" id="edit-button">Edit details</a>
 <button class="btn btn-sm btn-danger" ng-click="deleteContact(contact.id)">Delete</button>
