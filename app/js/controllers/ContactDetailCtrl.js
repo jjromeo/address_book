@@ -1,7 +1,8 @@
 'use strict';
 
-addressBookControllers.controller('ContactDetailCtrl', ['$scope', '$http','$routeParams','$location',
-  function($scope, $http, $routeParams, $location){
+addressBookControllers.controller('ContactDetailCtrl', [
+  '$scope', '$http','$routeParams','$location', 'Alerter',
+  function($scope, $http, $routeParams, $location, Alerter){
     $http.get('http://fast-gorge.herokuapp.com/contacts/' + $routeParams.id).success(function(data){
       $scope.contact = data;
     })
@@ -12,6 +13,7 @@ addressBookControllers.controller('ContactDetailCtrl', ['$scope', '$http','$rout
         if (answer === true) {
           $http.delete('http://fast-gorge.herokuapp.com/contacts/' + contactID).success(function(data){
             $location.path("/contacts");
+            Alerter.alerts.push({type: 'danger', msg: $scope.contact.first_name + ' ' + $scope.contact.surname + ' was removed from the address book'})
           })
         }
       })
