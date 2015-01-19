@@ -1,8 +1,8 @@
 {
   "name": "angular-seed",
-  "description": "A starter project for AngularJS",
+  "description": "An Address book application",
   "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "homepage": "https://github.com/jjromeo/address_book",
   "license": "MIT",
   "private": true,
   "dependencies": {
@@ -13,6 +13,8 @@
     "html5-boilerplate": "~4.3.0",
     "jquery": "~2.1.3",
     "bootbox": "~4.3.0",
-    "angular-utils-pagination": "~0.5.0"
+    "angular-utils-pagination": "~0.5.0",
+    "angular-bootstrap": "~0.12.0",
+    "bootstrap": "~3.3.1"
   }
 }

@@ -26,4 +26,9 @@
   border-radius: 4px;
   height: 100%;
 }
-
+@media (min-width: 100px) and (max-width: 768px) {
+  .see-more {
+    position: relative;
+    left: 70%;
+  }
+}
