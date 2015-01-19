@@ -12,7 +12,6 @@ describe('Address book controllers', function() {
 
   describe('NewContactCtrl', function() {
     var ctrl, scope, $httpBackend;
-    var urlRegex = new RegExp(/http:\/\/fast-gorge\.herokuapp\.com\/contacts\/(\d{4})/);
 
     beforeEach(module('addressBookApp'));
     beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
