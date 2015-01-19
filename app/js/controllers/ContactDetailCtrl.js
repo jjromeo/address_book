@@ -19,11 +19,11 @@ addressBookControllers.controller('ContactDetailCtrl', [
        //}
      //})
      
-     // Put in a boring confirm button
+     // Put in a less exciting confirm button that I could test
      if (confirm('Are you sure you want to delete this contact?')) {
        $http.delete('http://fast-gorge.herokuapp.com/contacts/' + contactID).success(function(data){
          $location.path("/contacts");
-         Alerter.addAlert('danger', $scope.contact.first_name + ' ' + $scope.contact.surname + ' was removed from the address book')
+         Alerter.addAlert('danger', $scope.contact.first_name + ' ' + $scope.contact.surname + ' was removed from the address book');
        })
      }
 

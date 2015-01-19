@@ -5,11 +5,12 @@ var addressBookApp = angular.module('addressBookApp', [
   'ngRoute',
   'ui.bootstrap',
   'addressBookControllers',
-  'addressBookServices'
+  'addressBookServices',
+  'angularUtils.directives.dirPagination'
 ]);
 
 var addressBookControllers = angular.module('addressBookControllers', []);
-var addressBookServices = angular.module('addressBookServices', [])
+var addressBookServices = angular.module('addressBookServices', []);
 
 addressBookApp.config(['$routeProvider',
   function($routeProvider) {
@@ -32,3 +33,7 @@ addressBookApp.config(['$routeProvider',
       controller: 'ContactListCtrl'
     })
 }]);
+
+addressBookApp.config(function(paginationTemplateProvider) {
+    paginationTemplateProvider.setPath('bower_components/angulular-utils-pagination/dirPagination.tpl.html');
+});
