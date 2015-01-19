@@ -10,7 +10,7 @@ describe('Address book controllers', function() {
               "id": 1741,
               "createdAt": "2014-07-29T21:51:23.000Z",
               "updatedAt": "2014-07-30T21:16:09.000Z"
-            }
+            };
 
   describe('ContactListCtrl', function() {
     var ctrl, scope, $httpBackend;
@@ -18,17 +18,16 @@ describe('Address book controllers', function() {
 
     beforeEach(module('addressBookApp'));
     beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
-      $httpBackend = _$httpBackend_
+      $httpBackend = _$httpBackend_;
       $httpBackend.whenGET(urlRegex).respond(
         function(method, url) {
         var mockId = url.match(urlRegex)[1];
-        return [200, Erik]
-      }
-      )
+        return [200, Erik];
+      });
       $httpBackend.expectGET().
-        respond(Erik)
+        respond(Erik);
 
-        scope = $rootScope.$new()
+        scope = $rootScope.$new();
         ctrl = $controller('ContactDetailCtrl', {$scope: scope});
   }));
   
@@ -36,5 +35,5 @@ describe('Address book controllers', function() {
       $httpBackend.flush()
       expect(scope.contact.first_name).toBe("Erik");
     }));
- })
+ });
 });

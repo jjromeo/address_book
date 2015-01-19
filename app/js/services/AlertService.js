@@ -10,5 +10,5 @@ addressBookServices.factory('Alerter',['myTimeout', function(myTimeout){
         myAlerts.splice((-1), 1);
       }, 5000);
     }
-  }
-}])
+  };
+}]);

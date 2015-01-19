@@ -28,9 +28,9 @@ describe('Address book services', function() {
 
     it ('should allow alerts to be added into it', inject(function(){
       expect(this.alerter.alerts.length).toBe(0)
-      this.alerter.addAlert('danger', 'Something dangerous happened')
-      expect(this.alerter.alerts.length).toBe(1)
+      this.alerter.addAlert('danger', 'Something dangerous happened');
+      expect(this.alerter.alerts.length).toBe(1);
     }));
 
- })
+ });
 });

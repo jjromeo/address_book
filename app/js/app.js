@@ -31,7 +31,7 @@ addressBookApp.config(['$routeProvider',
       redirectTo: '/contacts',
       templateUrl: 'views/contacts.html',
       controller: 'ContactListCtrl'
-    })
+    });
 }]);
 
 addressBookApp.config(function(paginationTemplateProvider) {

@@ -17,7 +17,7 @@ describe('address book', function() {
       element(by.model('contact.address')).sendKeys('123 Restaurant Street');
       element(by.model('contact.phone_number')).sendKeys('079 0873 3864');
       element(by.model('contact.email')).sendKeys('Alan@Ramsey.com');
-    }
+    };
     var editButton = element.all(by.css('#edit-button'));
 
     beforeEach(function() {
@@ -48,12 +48,12 @@ describe('address book', function() {
       editButton.click();
       expect(element(by.model('contact.first_name')).getAttribute('value')).toEqual('Alan');
       expect(element(by.model('contact.phone_number')).getAttribute('value')).toEqual('079 0873 3864');
-    })
+    });
 
     it('will let you search the contacts', function() {
-      element.all(by.model('searchContacts')).sendKeys('Alan')
-      expect(element(by.repeater('contact in contacts').row(0)).getText()).toMatch(/Alan/)
-    })
+      element.all(by.model('searchContacts')).sendKeys('Alan');
+      expect(element(by.repeater('contact in contacts').row(0)).getText()).toMatch(/Alan/);
+    });
 
     it ('will let you update a contact', function() {
       element.all(by.css('#see-more-Alan')).first().click();
@@ -62,15 +62,15 @@ describe('address book', function() {
       element.all(by.css('#submit-edit-button')).click();
       expect(element(by.css('.alert-msg')).getText()).toBe('Your contact has been updated');
       expect(element.all(by.binding('contact.address')).getText()).toEqual([ 'Address: 491 fakeman Lane' ]);
-    })
+    });
 
     it('will let you delete a contact', function(){
       element.all(by.css('#see-more-Alan')).first().click();
       element.all(by.css('#delete-button')).click();
       var alertDialog = browser.switchTo().alert();
       alertDialog.accept();
-      expect(element(by.css('.alert-msg')).getText()).toBe('Alan Ramsey was removed from the address book')
-    })
+      expect(element(by.css('.alert-msg')).getText()).toBe('Alan Ramsey was removed from the address book');
+    });
 
   });
 
