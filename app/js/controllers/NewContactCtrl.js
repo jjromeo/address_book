@@ -6,8 +6,11 @@ addressBookControllers.controller('NewContactCtrl', ['$scope', '$http', '$locati
       $http.post("http://fast-gorge.herokuapp.com/contacts", contact).success(function(response){
         $location.path('#/contacts');
         Alerter.addAlert('success', 'You have successfully added ' + contact.first_name + ' ' + contact.surname + ' to the address book');
-      });
-    }
+      }).error(function(){
+        Alerter.addAlert('danger', 'Your contact has not been added, please try again');
+        console.log('There has been an error in NewContactCtrl');
+      })
+    };
   }
 
 ]);

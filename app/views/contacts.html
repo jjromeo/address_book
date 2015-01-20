@@ -3,6 +3,7 @@
   <div id="contacts-container" dir-paginate="contact in contacts | filter:searchContacts | itemsPerPage: 4 ">
     <div class="contact highlight">
       <p>{{contact.first_name}} {{contact.surname}}</p>
+      <p>Email: <a href="mailto:{{contact.email}}">{{contact.email}}</a></p>
       <p>Phone number: {{contact.phone_number}}</p>
       <a class="btn btn-sm btn-info see-more" href="#/contacts/{{contact.id}}" id="see-more-{{contact.first_name}}">See more</a>
     </div>

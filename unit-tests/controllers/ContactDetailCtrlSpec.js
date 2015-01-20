@@ -32,7 +32,7 @@ describe('Address book controllers', function() {
   }));
   
     it ('should be able to get a contacts details from an api', inject(function($controller){
-      $httpBackend.flush()
+      $httpBackend.flush();
       expect(scope.contact.first_name).toBe("Erik");
     }));
  });

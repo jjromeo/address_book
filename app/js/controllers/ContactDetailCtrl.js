@@ -24,7 +24,10 @@ addressBookControllers.controller('ContactDetailCtrl', [
        $http.delete('http://fast-gorge.herokuapp.com/contacts/' + contactID).success(function(data){
          $location.path("/contacts");
          Alerter.addAlert('danger', $scope.contact.first_name + ' ' + $scope.contact.surname + ' was removed from the address book');
-       });
+       }).error(function(){
+         Alerter.addAlert('info', 'There was an error deleting the contact, please try again');
+         console.log('delete request unsuccessful')
+       })
      }
    };
   }

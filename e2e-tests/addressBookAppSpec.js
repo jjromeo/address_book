@@ -4,8 +4,6 @@ describe('address book', function() {
 
   browser.get('index.html');
 
-
-
   describe('contacts page', function() {
 
     var addAlanRamsey = function(){
@@ -71,7 +69,5 @@ describe('address book', function() {
       alertDialog.accept();
       expect(element(by.css('.alert-msg')).getText()).toBe('Alan Ramsey was removed from the address book');
     });
-
   });
-
 });
