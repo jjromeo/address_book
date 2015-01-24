@@ -1,8 +1,8 @@
 'use strict';
 
 addressBookControllers.controller('ContactDetailCtrl', [
-  '$scope', '$http','$routeParams','$location', 'Alerter',
-  function($scope, $http, $routeParams, $location, Alerter){
+  '$scope', '$http','$routeParams','$location', 'Alerter', '$log',
+  function($scope, $http, $routeParams, $location, Alerter, $log){
     $http.get(contactsUrl + $routeParams.id).success(function(data){
       $scope.contact = data;
     });
@@ -14,7 +14,7 @@ addressBookControllers.controller('ContactDetailCtrl', [
           Alerter.addAlert('danger', $scope.contact.first_name + ' ' + $scope.contact.surname + ' was removed from the address book');
         }).error(function(){
           Alerter.addAlert('info', 'There was an error deleting the contact, please try again');
-          console.log('delete request unsuccessful')
+          $log.error('delete request unsuccessful')
         })
       }
     };

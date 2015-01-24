@@ -6,7 +6,8 @@ var addressBookApp = angular.module('addressBookApp', [
   'ui.bootstrap',
   'addressBookControllers',
   'addressBookServices',
-  'angularUtils.directives.dirPagination'
+  'angularUtils.directives.dirPagination',
+  'ngResource'
 ]);
 
 var contactsUrl = 'http://fast-gorge.herokuapp.com/contacts/'
