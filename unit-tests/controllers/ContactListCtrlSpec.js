@@ -38,7 +38,7 @@ describe('Address book controllers', function() {
     beforeEach(module('addressBookApp'));
     beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
       $httpBackend = _$httpBackend_;
-      $httpBackend.expectGET('http://fast-gorge.herokuapp.com/contacts/').
+      $httpBackend.expectGET('http://fast-gorge.herokuapp.com/contacts').
       respond(someContacts);
       scope = $rootScope.$new();
       ctrl = $controller('ContactListCtrl', {$scope: scope});
