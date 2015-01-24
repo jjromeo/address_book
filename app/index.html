@@ -45,6 +45,7 @@
     $script([
       'bower_components/angular/angular.js',
       'bower_components/angular-route/angular-route.js',
+      'bower_components/angular-resource/angular-resource.js',
       'js/app.js',
       'bower_components/angular-bootstrap/ui-bootstrap.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
@@ -55,6 +56,7 @@
       'js/controllers/NewContactCtrl.js',
       'js/controllers/AlertCtrl.js',
       'js/services/AlertService.js',
+      'js/services/ContactService.js',
       'js/services/myTimeout.js',
     ], function() {
       // when all is done, execute bootstrap angular application
@@ -70,7 +72,7 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-          <a href="#/contacts"><h1>Address Book</h1></a>
+          <h1><a href="#/contacts">Address Book</a></h1>
           <a href="#/new" id="add-contact">Add a contact</a>
           <div id="alerts" ng-cloak ng-controller="AlertCtrl">
               <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)"><span class="alert-msg">{{alert.msg}}</span></alert>

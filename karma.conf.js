@@ -10,6 +10,7 @@ module.exports = function(config){
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/bower_components/angular-bootstrap/ui-bootstrap.js',
       'app/bower_components/angular-utils-pagination/dirPagination.js',
+      'app/bower_components/angular-resource/angular-resource.js',
       'app/js/app.js',
       'app/js/controllers/*.js',
       'app/js/services/*.js',
