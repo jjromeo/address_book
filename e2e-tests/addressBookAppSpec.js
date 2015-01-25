@@ -1,6 +1,7 @@
 'use strict';
 
 describe('address book', function() {
+  var addressBookPage = require('./addressBookPage.js')
 
   browser.get('index.html');
 
@@ -13,7 +14,7 @@ describe('address book', function() {
       element(by.model('contact.phone_number')).sendKeys('079 0873 3864');
       element(by.model('contact.email')).sendKeys('Alan@Ramsey.com');
     };
-    var editButton = element.all(by.css('#edit-button'));
+    var editButton = addressBookPage.editButton
 
     beforeEach(function() {
       browser.get('index.html#/contacts');
@@ -44,7 +45,7 @@ describe('address book', function() {
     it('will auto-fill inputs when you want to update the details of a contact', function() {
       element.all(by.css('#see-more-Alan')).first().click();
       editButton.click();
-      expect(element(by.model('contact.first_name')).getAttribute('value')).toEqual('Alan');
+      expect(addressBookPage.first_name.getAttribute('value')).toEqual('Alan');
       expect(element(by.model('contact.phone_number')).getAttribute('value')).toEqual('079 0873 3864');
     });
 
