@@ -1,14 +1,15 @@
 'use strict';
 
 addressBookControllers.controller('EditContactCtrl', [
-  '$scope', '$http', '$routeParams', '$location', 'Alerter', '$log',
-  function($scope, $http, $routeParams, $location, Alerter, $log){
+  '$scope', '$http', '$routeParams', '$location', 'Alerter', '$log', 'ContactService',
+  function($scope, $http, $routeParams, $location, Alerter, $log, ContactService){
     var id = $routeParams.id;
 
     // for pre-filling the form
-    $http.get(contactsUrl + id).success(function(data){
+    ContactService.contacts.get({id: $routeParams.id}, function(data){
       $scope.contact = data;
-    }).error(function(){
+    },
+    function(error) {
       $log.error('error in EditContactCtrl');
     });
 

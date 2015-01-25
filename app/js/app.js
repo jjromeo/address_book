@@ -10,7 +10,7 @@ var addressBookApp = angular.module('addressBookApp', [
   'ngResource'
 ]);
 
-var contactsUrl = 'http://fast-gorge.herokuapp.com/contacts/'
+var contactsUrl = 'http://fast-gorge.herokuapp.com/contacts/:id'
 var addressBookControllers = angular.module('addressBookControllers', []);
 var addressBookServices = angular.module('addressBookServices', []);
 
