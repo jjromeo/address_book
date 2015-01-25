@@ -43,6 +43,6 @@ addressBookApp.config(function(RestangularProvider) {
 });
 
 addressBookApp.config(function(paginationTemplateProvider) {
-    paginationTemplateProvider.setPath('bower_components/angulular-utils-pagination/dirPagination.tpl.html');
+  paginationTemplateProvider.setPath('bower_components/angulular-utils-pagination/dirPagination.tpl.html');
 });
 
