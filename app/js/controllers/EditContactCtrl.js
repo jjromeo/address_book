@@ -1,13 +1,13 @@
 'use strict';
 
 addressBookControllers.controller('EditContactCtrl', [
-  '$scope', '$http', '$routeParams', '$location', 'Alerter', '$log', 'Restangular',
-  function($scope, $http, $routeParams, $location, Alerter, $log, Restangular){
+  '$scope', '$http', '$routeParams', '$location', 'Alerter', '$log', 'ContactService',
+  function($scope, $http, $routeParams, $location, Alerter, $log, ContactService){
 
     var id = $routeParams.id;
 
     // for pre-filling the form
-    Restangular.one('contacts', id).get().then(function(data){
+    ContactService.fetchContact(id).then(function(data){
       $scope.contact = data;
     },
     function(error) {
@@ -15,7 +15,7 @@ addressBookControllers.controller('EditContactCtrl', [
     });
 
     $scope.submitEdit = function(contact) {
-      Restangular.one('contacts', id).put(contact).then(function(data){
+      ContactService.editContact(id, contact).then(function(data){
         $location.path("/contacts/" + id );
         Alerter.addAlert('info', 'Your contact has been updated');
       }, function(error){

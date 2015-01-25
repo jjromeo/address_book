@@ -10,7 +10,7 @@ var addressBookApp = angular.module('addressBookApp', [
   'restangular'
 ]);
 
-var contactsUrl = 'http://fast-gorge.herokuapp.com/contacts/:id'
+var apiUrl = 'http://fast-gorge.herokuapp.com'
 var addressBookControllers = angular.module('addressBookControllers', []);
 var addressBookServices = angular.module('addressBookServices', []);
 
@@ -36,10 +36,11 @@ addressBookApp.config(['$routeProvider',
     });
 }]);
 
+addressBookApp.config(function(RestangularProvider) {
+  RestangularProvider.setBaseUrl(apiUrl)
+});
+
 addressBookApp.config(function(paginationTemplateProvider) {
     paginationTemplateProvider.setPath('bower_components/angulular-utils-pagination/dirPagination.tpl.html');
 });
 
-addressBookApp.config(function(RestangularProvider) {
-  RestangularProvider.setBaseUrl('http://fast-gorge.herokuapp.com')
-});

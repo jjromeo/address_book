@@ -1,9 +1,9 @@
 'use strict';
 
-addressBookControllers.controller('NewContactCtrl', ['$scope', '$http', '$location', 'Alerter', '$log', 'Restangular',
-  function($scope, $http, $location, Alerter, $log, Restangular){
+addressBookControllers.controller('NewContactCtrl', ['$scope', '$http', '$location', 'Alerter', '$log', 'ContactService',
+  function($scope, $http, $location, Alerter, $log, ContactService){
     $scope.submitContact = function(contact) {
-      Restangular.all('contacts').post(contact).then(function(contact) {
+      ContactService.addContact(contact).then(function(contact) {
         $location.path('/contacts');
         Alerter.addAlert('success', 'You have successfully added ' + contact.first_name + ' ' + contact.surname + ' to the address book');
       },
