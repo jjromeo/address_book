@@ -3,4 +3,4 @@
 <p>Email: <a href="mailto:{{contact.email}}">{{contact.email}}</a></p>
 <p>Address: {{contact.address}}</p>
 <a class="btn btn-sm btn-info" href="#/edit/{{contact.id}}" id="edit-button">Edit details</a>
-<button class="btn btn-sm btn-danger" id="delete-button" ng-click="deleteContact(contact.id)">Delete</button>
+<button class="btn btn-sm btn-danger" id="delete-button" ng-confirm-message="Are you sure?" ng-confirm-click="takeAction(deleteContact(contact.id))" ng-confirm-condition="true" >Delete</button>

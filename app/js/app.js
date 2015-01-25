@@ -6,6 +6,7 @@ var addressBookApp = angular.module('addressBookApp', [
   'ui.bootstrap',
   'addressBookControllers',
   'addressBookServices',
+  'addressBookDirectives',
   'angularUtils.directives.dirPagination',
   'restangular'
 ]);
@@ -13,6 +14,7 @@ var addressBookApp = angular.module('addressBookApp', [
 var apiUrl = 'http://fast-gorge.herokuapp.com'
 var addressBookControllers = angular.module('addressBookControllers', []);
 var addressBookServices = angular.module('addressBookServices', []);
+var addressBookDirectives= angular.module('addressBookDirectives', []);
 
 addressBookApp.config(['$routeProvider',
   function($routeProvider) {
