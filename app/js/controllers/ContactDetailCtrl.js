@@ -1,18 +1,22 @@
 'use strict';
 
 addressBookControllers.controller('ContactDetailCtrl', [
-  '$scope', '$http','$routeParams','$location', 'Alerter', '$log',
-  function($scope, $http, $routeParams, $location, Alerter, $log){
-    $http.get(contactsUrl + $routeParams.id).success(function(data){
-      $scope.contact = data;
-    });
+  '$scope', '$http','$routeParams','$location', 'Alerter', '$log', 'ContactService',
+  function($scope, $http, $routeParams, $location, Alerter, $log, ContactService){
+
+    ContactService.fetchContact($routeParams.id).then(function(contact){
+      $scope.contact = contact
+    }, function(error){
+      $log.error("Error with status code " + error.status);
+      Alerter.addAlert('danger', 'There was an error in loading the contact, please try again later')
+  })
 
     $scope.deleteContact = function(contactID) {
       if (confirm('Are you sure you want to delete this contact?')) {
-        $http.delete(contactsUrl + contactID).success(function(data){
+        ContactService.removeContact(contactID).then(function(contact){
           $location.path("/contacts");
           Alerter.addAlert('danger', $scope.contact.first_name + ' ' + $scope.contact.surname + ' was removed from the address book');
-        }).error(function(){
+        }, function(error){
           Alerter.addAlert('info', 'There was an error deleting the contact, please try again');
           $log.error('delete request unsuccessful')
         })

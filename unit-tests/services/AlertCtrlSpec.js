@@ -7,11 +7,11 @@ describe('Address book services', function() {
     beforeEach(module('addressBookApp'));
     beforeEach(function(){
       var timeOut = function(fn, delay) {
-                    return setTimeout(function() {
-                      fn();
-                      $rootScope.$apply();
-                    }, 3000);
-  };
+        return setTimeout(function() {
+          fn();
+          $rootScope.$apply();
+        }, 3000);
+      };
       module(function($provide){
         $provide.value('myTimeout', timeOut);
       });
@@ -21,7 +21,7 @@ describe('Address book services', function() {
       });
     });
 
-  
+
     it ('should have an empty alerts array', inject(function(){
       expect(this.alerter.alerts.length).toBe(0);
     }));
@@ -32,5 +32,5 @@ describe('Address book services', function() {
       expect(this.alerter.alerts.length).toBe(1);
     }));
 
- });
+  });
 });

@@ -1,22 +1,24 @@
 'use strict';
 
 addressBookControllers.controller('EditContactCtrl', [
-  '$scope', '$http', '$routeParams', '$location', 'Alerter', '$log',
-  function($scope, $http, $routeParams, $location, Alerter, $log){
+  '$scope', '$http', '$routeParams', '$location', 'Alerter', '$log', 'ContactService',
+  function($scope, $http, $routeParams, $location, Alerter, $log, ContactService){
+
     var id = $routeParams.id;
 
     // for pre-filling the form
-    $http.get(contactsUrl + id).success(function(data){
+    ContactService.fetchContact(id).then(function(data){
       $scope.contact = data;
-    }).error(function(){
+    },
+    function(error) {
       $log.error('error in EditContactCtrl');
     });
 
     $scope.submitEdit = function(contact) {
-      $http.put(contactsUrl + id, contact).success(function(data){
+      ContactService.editContact(id, contact).then(function(data){
         $location.path("/contacts/" + id );
         Alerter.addAlert('info', 'Your contact has been updated');
-      }).error(function(){
+      }, function(error){
         $log.error('Put request unsuccessful');
         Alerter.addAlert('danger', 'Your contact has not been updated, please try again later');
       })

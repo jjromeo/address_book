@@ -1,12 +1,13 @@
 'use strict';
 
-addressBookControllers.controller('NewContactCtrl', ['$scope', '$http', '$location', 'Alerter', '$log',
-  function($scope, $http, $location, Alerter, $log){
+addressBookControllers.controller('NewContactCtrl', ['$scope', '$http', '$location', 'Alerter', '$log', 'ContactService',
+  function($scope, $http, $location, Alerter, $log, ContactService){
     $scope.submitContact = function(contact) {
-      $http.post(contactsUrl , contact).success(function(response){
+      ContactService.addContact(contact).then(function(contact) {
         $location.path('/contacts');
         Alerter.addAlert('success', 'You have successfully added ' + contact.first_name + ' ' + contact.surname + ' to the address book');
-      }).error(function(){
+      },
+      function(error){
         Alerter.addAlert('danger', 'Your contact has not been added, please try again');
         $log.error('There has been an error in NewContactCtrl');
       })

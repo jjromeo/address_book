@@ -21,7 +21,7 @@ describe('Address book controllers', function() {
     }));
 
     it ('should be able to post a contacts data to the api', inject(function($controller){
-      $httpBackend.expectPOST('http://fast-gorge.herokuapp.com/contacts/', newContact).respond(201, '');
+      $httpBackend.expectPOST('http://fast-gorge.herokuapp.com/contacts', newContact).respond(201, '');
       scope.submitContact(newContact);
       $httpBackend.verifyNoOutstandingRequest();
       $httpBackend.verifyNoOutstandingExpectation();
