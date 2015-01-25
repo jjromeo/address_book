@@ -7,7 +7,8 @@ var addressBookApp = angular.module('addressBookApp', [
   'addressBookControllers',
   'addressBookServices',
   'angularUtils.directives.dirPagination',
-  'ngResource'
+  'ngResource',
+  'restangular'
 ]);
 
 var contactsUrl = 'http://fast-gorge.herokuapp.com/contacts/:id'
@@ -38,4 +39,8 @@ addressBookApp.config(['$routeProvider',
 
 addressBookApp.config(function(paginationTemplateProvider) {
     paginationTemplateProvider.setPath('bower_components/angulular-utils-pagination/dirPagination.tpl.html');
+});
+
+addressBookApp.config(function(RestangularProvider) {
+  RestangularProvider.setBaseUrl('http://fast-gorge.herokuapp.com')
 });

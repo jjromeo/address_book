@@ -1,10 +1,12 @@
 'use strict';
 
 addressBookControllers.controller('ContactDetailCtrl', [
-  '$scope', '$http','$routeParams','$location', 'Alerter', '$log', 'ContactService',
-  function($scope, $http, $routeParams, $location, Alerter, $log, ContactService){
+  '$scope', '$http','$routeParams','$location', 'Alerter', '$log', 'ContactService', 'Restangular',
+  function($scope, $http, $routeParams, $location, Alerter, $log, ContactService, Restangular){
 
-    $scope.contact = ContactService.contacts.get({id: $routeParams.id});
+    Restangular.one('contacts', $routeParams.id).get().then(function(contact){
+      $scope.contact = contact
+    })
 
     $scope.deleteContact = function(contactID) {
       if (confirm('Are you sure you want to delete this contact?')) {
