@@ -7,7 +7,6 @@ var addressBookApp = angular.module('addressBookApp', [
   'addressBookControllers',
   'addressBookServices',
   'angularUtils.directives.dirPagination',
-  'ngResource',
   'restangular'
 ]);
 

@@ -12,6 +12,7 @@ module.exports = function(config){
       'app/bower_components/angular-utils-pagination/dirPagination.js',
       'app/bower_components/angular-resource/angular-resource.js',
       'app/bower_components/restangular/src/restangular.js',
+      'app/bower_components/underscore/underscore.js',
       'app/js/app.js',
       'app/js/controllers/*.js',
       'app/js/services/*.js',
