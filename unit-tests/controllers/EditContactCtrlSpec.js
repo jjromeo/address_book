@@ -33,16 +33,17 @@ describe('Address book controllers', function() {
       scope = $rootScope.$new();
       ctrl = $controller('EditContactCtrl', {$scope: scope});
     }));
+
     afterEach(function(){
       $httpBackend.verifyNoOutstandingRequest();
       $httpBackend.verifyNoOutstandingExpectation();
+      $httpBackend.flush();
     })
 
     it ('should be able to post a contacts data to the api', inject(function($controller){
       $httpBackend.expectGET().respond(newContact);
       $httpBackend.expectPUT().respond(201, editedContact);
       scope.submitEdit(newContact);
-      $httpBackend.flush();
     }));
 
   });

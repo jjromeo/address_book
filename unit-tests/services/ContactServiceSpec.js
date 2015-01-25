@@ -1,13 +1,12 @@
 'use strict'; 
 
 describe('ContactService', function() {
-  var $httpBackend, Restangular, q, scope;
+  var $httpBackend, Restangular, scope;
 
   beforeEach(module('addressBookApp'));
-  beforeEach(inject(function(_Restangular_, _$httpBackend_, $q, $rootScope){
+  beforeEach(inject(function(_Restangular_, _$httpBackend_, $rootScope){
     $httpBackend = _$httpBackend_;
     Restangular = _Restangular_;
-    q = $q
     scope = $rootScope.$new();
   }));
 
@@ -25,6 +24,7 @@ describe('ContactService', function() {
       "phone_number": "074111222333",
       "email": "James@Smith.com",
     };
+
     var mockToReturn = [{
       "first_name": "Erik",
       "surname": "Svenson",
@@ -34,16 +34,6 @@ describe('ContactService', function() {
       "id": 1741,
       "createdAt": "2014-07-29T21:51:23.000Z",
       "updatedAt": "2014-07-30T21:16:09.000Z"
-    },
-    {
-      "first_name": "Asia",
-      "surname": "India",
-      "address": "America",
-      "phone_number": "0928492",
-      "email": "test@test.com",
-      "id": 2061,
-      "createdAt": "2015-01-14T18:19:13.000Z",
-      "updatedAt": "2015-01-14T18:19:13.000Z"
     }];
 
     var headers = {"Accept":"application/json, text/plain, */*"}

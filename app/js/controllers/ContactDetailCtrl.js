@@ -9,16 +9,16 @@ addressBookControllers.controller('ContactDetailCtrl', [
     }, function(error){
       $log.error("Error with status code " + error.status);
       Alerter.addAlert('danger', 'There was an error in loading the contact, please try again later')
-  })
+    })
 
     $scope.deleteContact = function(contactID) {
-        ContactService.removeContact(contactID).then(function(contact){
-          $location.path("/contacts");
-          Alerter.addAlert('danger', $scope.contact.first_name + ' ' + $scope.contact.surname + ' was removed from the address book');
-        }, function(error){
-          Alerter.addAlert('info', 'There was an error deleting the contact, please try again');
-          $log.error('delete request unsuccessful')
-        })
+      ContactService.removeContact(contactID).then(function(contact){
+        $location.path("/contacts");
+        Alerter.addAlert('danger', $scope.contact.first_name + ' ' + $scope.contact.surname + ' was removed from the address book');
+      }, function(error){
+        Alerter.addAlert('info', 'There was an error deleting the contact, please try again');
+        $log.error('delete request unsuccessful')
+      })
     };
   }
 ]);

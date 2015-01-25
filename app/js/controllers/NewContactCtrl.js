@@ -2,6 +2,7 @@
 
 addressBookControllers.controller('NewContactCtrl', ['$scope', '$http', '$location', 'Alerter', '$log', 'ContactService',
   function($scope, $http, $location, Alerter, $log, ContactService){
+    $scope.contact = {}
     $scope.submitContact = function(contact) {
       ContactService.addContact(contact).then(function(contact) {
         $location.path('/contacts');
