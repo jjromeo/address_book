@@ -36,7 +36,7 @@ describe('ContactService', function() {
       "updatedAt": "2014-07-30T21:16:09.000Z"
     }];
 
-    var headers = {"Accept":"application/json, text/plain, */*"}
+    var headers = {"Accept":"application/json, text/plain, */*"};
 
     it('can get contacts list data', inject(function(ContactService){ 
       spyOn(Restangular, 'all').andCallThrough();

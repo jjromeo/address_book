@@ -5,11 +5,11 @@ addressBookControllers.controller('ContactDetailCtrl', [
   function($scope, $http, $routeParams, $location, Alerter, $log, ContactService){
 
     ContactService.fetchContact($routeParams.id).then(function(contact){
-      $scope.contact = contact
+      $scope.contact = contact;
     }, function(error){
       $log.error("Error with status code " + error.status);
-      Alerter.addAlert('danger', 'There was an error in loading the contact, please try again later')
-    })
+      Alerter.addAlert('danger', 'There was an error in loading the contact, please try again later');
+    });
 
     $scope.deleteContact = function(contactID) {
       ContactService.removeContact(contactID).then(function(contact){
@@ -17,8 +17,8 @@ addressBookControllers.controller('ContactDetailCtrl', [
         Alerter.addAlert('danger', $scope.contact.first_name + ' ' + $scope.contact.surname + ' was removed from the address book');
       }, function(error){
         Alerter.addAlert('info', 'There was an error deleting the contact, please try again');
-        $log.error('delete request unsuccessful')
-      })
+        $log.error('delete request unsuccessful');
+      });
     };
   }
 ]);

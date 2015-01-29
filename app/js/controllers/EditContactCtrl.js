@@ -21,7 +21,7 @@ addressBookControllers.controller('EditContactCtrl', [
       }, function(error){
         $log.error('Put request unsuccessful');
         Alerter.addAlert('danger', 'Your contact has not been updated, please try again later');
-      })
+      });
     };
   }
 ]);

@@ -48,7 +48,7 @@ describe('Address book controllers', function() {
     afterEach(function(){
       $httpBackend.verifyNoOutstandingRequest();
       $httpBackend.verifyNoOutstandingExpectation();
-    })
+    });
 
     it ('should create an address model with all items from the api', inject(function($controller){
       expect(scope.contacts.length).toBe(3);

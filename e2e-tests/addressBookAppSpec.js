@@ -14,7 +14,7 @@ describe('address book', function() {
       element(by.model('contact.phone_number')).sendKeys('079 0873 3864');
       element(by.model('contact.email')).sendKeys('Alan@Ramsey.com');
     };
-    var editButton = addressBookPage.editButton
+    var editButton = addressBookPage.editButton;
 
     beforeEach(function() {
       browser.get('index.html#/contacts');

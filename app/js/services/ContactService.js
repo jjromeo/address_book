@@ -17,5 +17,5 @@ addressBookServices.factory('ContactService', function(Restangular){
     addContact: function(contact) {
       return Restangular.all('contacts').post(contact);
     }
-  }
+  };
 });

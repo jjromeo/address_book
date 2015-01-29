@@ -1,3 +1,4 @@
+'use strict';
 addressBookDirectives.directive('ngConfirmClick', [function() {
   return {
     restrict: 'A',

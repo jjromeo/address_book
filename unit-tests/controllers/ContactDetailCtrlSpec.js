@@ -35,15 +35,15 @@ describe('Address book controllers', function() {
     afterEach(function(){
       $httpBackend.verifyNoOutstandingRequest();
       $httpBackend.verifyNoOutstandingExpectation();
-    })
+    });
   
     it ('should be able to get a contacts details from an api', inject(function($controller){
       expect(scope.contact.first_name).toBe("Erik");
     }));
 
     it ('should be able to send a delete request', inject(function($controller){
-      $httpBackend.expectDELETE(urlRegex).respond(201)
-      scope.deleteContact(1741)
+      $httpBackend.expectDELETE(urlRegex).respond(201);
+      scope.deleteContact(1741);
       expect(scope.contact.first_name).toBe("Erik");
     }));
  });

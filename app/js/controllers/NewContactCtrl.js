@@ -11,7 +11,7 @@ addressBookControllers.controller('NewContactCtrl', ['$scope', '$http', '$locati
       function(error){
         Alerter.addAlert('danger', 'Your contact has not been added, please try again');
         $log.error('There has been an error in NewContactCtrl');
-      })
+      });
     };
   }
 

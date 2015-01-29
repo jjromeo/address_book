@@ -38,7 +38,7 @@ describe('Address book controllers', function() {
       $httpBackend.verifyNoOutstandingRequest();
       $httpBackend.verifyNoOutstandingExpectation();
       $httpBackend.flush();
-    })
+    });
 
     it ('should be able to post a contacts data to the api', inject(function($controller){
       $httpBackend.expectGET().respond(newContact);

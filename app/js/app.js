@@ -1,5 +1,9 @@
 'use strict';
 
+var apiUrl = 'http://fast-gorge.herokuapp.com';
+var addressBookControllers = angular.module('addressBookControllers', []);
+var addressBookServices = angular.module('addressBookServices', []);
+var addressBookDirectives= angular.module('addressBookDirectives', []);
 
 var addressBookApp = angular.module('addressBookApp', [
   'ngRoute',
@@ -10,11 +14,6 @@ var addressBookApp = angular.module('addressBookApp', [
   'angularUtils.directives.dirPagination',
   'restangular'
 ]);
-
-var apiUrl = 'http://fast-gorge.herokuapp.com'
-var addressBookControllers = angular.module('addressBookControllers', []);
-var addressBookServices = angular.module('addressBookServices', []);
-var addressBookDirectives= angular.module('addressBookDirectives', []);
 
 addressBookApp.config(['$routeProvider',
   function($routeProvider) {
@@ -39,7 +38,7 @@ addressBookApp.config(['$routeProvider',
 }]);
 
 addressBookApp.config(function(RestangularProvider) {
-  RestangularProvider.setBaseUrl(apiUrl)
+  RestangularProvider.setBaseUrl(apiUrl);
 });
 
 addressBookApp.config(function(paginationTemplateProvider) {
