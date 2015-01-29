@@ -16,5 +16,5 @@ addressBookDirectives.directive('ngConfirmClick', [function() {
         }
       });
     }
-  }
+  };
 }]);

@@ -39,5 +39,3 @@ As I continued with the project I realised Angular was very well-suited to the j
 I used Bootstrap for the styling of the app, making it responsive for mobiles, and giving it a slightly pleasant look.
 
 If I were to improve the app I would refactor existing and add further integration and unit tests, additionally I would refactor the $http requests to use a service. I would also make the app look slightly more exciting.
-
-Lastly, I did have some trouble test driving the app, some of the tests were written afterwards. I will in future test-drive my angular apps, having learned more about angular testing.

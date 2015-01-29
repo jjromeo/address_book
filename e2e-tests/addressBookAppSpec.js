@@ -1,7 +1,7 @@
 'use strict';
 
 describe('address book', function() {
-  var addressBookPage = require('./addressBookPage.js')
+  var addressBookPage = require('./addressBookPage.js');
 
   browser.get('index.html');
 
